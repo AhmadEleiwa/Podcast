@@ -3,7 +3,7 @@ import style from './style.module.css'
 import { CSSProperties } from 'react'
 
 /**
- * 
+ * Link is custom link of react-router-dom
  * @param {{
  * to: String
  * style: CSSProperties
