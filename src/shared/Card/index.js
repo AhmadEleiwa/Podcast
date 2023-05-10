@@ -4,9 +4,10 @@ import style from './style.module.css'
 import { Link } from "react-router-dom"
 
 /**
+ * Custom Card using MUI Card component. Allow the card to be a link
  * @param {{
- * to:String,
- * media:String,
+ * to: String,
+ * media: String,
  * title: String,
  * genre: String}} props 
  * @returns Link / MUICard
