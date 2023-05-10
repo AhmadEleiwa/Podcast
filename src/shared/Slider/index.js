@@ -3,6 +3,16 @@ import style from './style.module.css'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useRef } from "react";
 
+/**
+ * Slider is horizontal scroll view controlled by 2 arrows 
+ * @param {{
+ * children: any,
+ * maxWidth: String | Number 
+ * }} props 
+ * @returns 
+ */
+
+
 const Slider = props => {
 
     const slider = useRef(null)
@@ -32,7 +42,7 @@ const Slider = props => {
         display={'flex'}
         alignItems={'center'}
         position={'relative'}
-
+        maxWidth={props.maxWidth}
     >
         <Box
             className={style.arrowBox}
