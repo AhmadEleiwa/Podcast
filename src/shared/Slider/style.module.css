@@ -1,0 +1,24 @@
+.arrowBack {
+    transform: rotateY(180deg);
+}
+
+.arrow {
+    background-color: white !important;
+    border: 1px solid !important;
+}
+
+.arrowBox{
+    height: 100%;
+    width: 50px;
+    display: flex;
+    align-items: center;
+
+}
+
+@media screen and (max-width:720px) {
+
+    .arrowBox{
+
+        background-color: transparent !important;
+    }
+}
