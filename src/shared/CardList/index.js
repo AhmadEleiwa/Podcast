@@ -9,9 +9,9 @@ const sizes = [4, 4, 4, 8, 4, 4, 8]
  */
 
 const CardList = props => {
-    return <Grid container width={'60%'} spacing={2}>
+    return <Grid container width={{xs:'100%', lg:'80%'}} spacing={2} >
         {sizes.map((i, index) =>
-            <Grid item xs={i} key={index} >
+            <Grid item sm={i} xs={12}  key={index} >
                 <Card
                     to={props.items[index].to}
                     title={props.items[index].title}
