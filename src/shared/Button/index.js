@@ -1,11 +1,20 @@
-import { Button as MUIButton } from "@mui/material"
+import { Button as MUIButton } from "@mui/material";
 /**
- * 
- * @param {{color:String}} props 
- * @returns 
+ *
+ * @param {{color:String, variant: "outlined" | "contained"}} props
+ * @returns
  */
-const Button = props=>{
-    return <MUIButton variant="outlined" sx={{borderRadius:'50em'}} color={props.color?props.color:'primary'}>test</MUIButton>
-}
+const Button = (props) => {
+  return (
+    <MUIButton
+      variant={props.variant ? props.variant : `outlined`}
+      sx={{ borderRadius: "50em" }}
+      color={props.color ? props.color : "primary"}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </MUIButton>
+  );
+};
 
-export default Button
+export default Button;
