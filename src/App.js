@@ -9,10 +9,14 @@ const theme = createTheme({
       main: '#816AFE',
       
     },
+    secondary:{
+      main:'#8EFCBA'
+    },
     white:{
-      main: '#f1f1f1',
-
+      main: '#ffffff',
+      contrastText:'#816AFE'
     }
+    
   }
 })
 function App() {
