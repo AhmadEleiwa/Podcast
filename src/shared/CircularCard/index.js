@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-const CircalurCard = (props) => {
+const CircularCard = (props) => {
   return (
     <Box
       width={100}
