@@ -21,4 +21,4 @@ const CircularCard = (props) => {
   );
 };
 
-export default CircalurCard;
+export default CircularCard;
