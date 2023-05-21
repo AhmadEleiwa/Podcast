@@ -1,5 +1,10 @@
 import { Box } from "@mui/material";
 
+/**
+ * 
+ * @param {{src:string}} props 
+ * @returns 
+ */
 const CircularCard = (props) => {
   return (
     <Box
@@ -15,7 +20,7 @@ const CircularCard = (props) => {
         width={"85%"}
         height={"85%"}
         style={{ borderRadius: "50%" }}
-        src="https://picsum.photos/200/300"
+        src={props.src}
       />
     </Box>
   );
