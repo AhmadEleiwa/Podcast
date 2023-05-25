@@ -5,7 +5,7 @@ import { Box } from "@mui/system";
 
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
-const Header = (props) => {
+const Header = ({minimum}) => {
   const theme = useTheme();
 
 
@@ -17,8 +17,10 @@ const Header = (props) => {
       bgcolor={{ xs: "transparent", sm: theme.palette.primary.main }}
       display={"flex"}
       justifyContent={"center"}
+      zIndex={5}
+
     >
-      <LeftSide />
+      <LeftSide minimum={minimum} />
       <RightSide />
 
     </Box>
