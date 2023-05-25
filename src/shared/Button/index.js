@@ -7,11 +7,10 @@ import { Button as MUIButton } from "@mui/material";
 const Button = (props) => {
   return (
     <MUIButton
-        
-      variant="outlined"
-      onClick={props.onClick}
-      sx={{ borderRadius: "50em !important" }}
+      variant={props.variant ? props.variant : `outlined`}
+      sx={{ borderRadius: "50em" }}
       color={props.color ? props.color : "primary"}
+      onClick={props.onClick}
     >
       {props.children}
     </MUIButton>
