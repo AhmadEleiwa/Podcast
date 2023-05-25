@@ -1,12 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Button from './shared/Button'
+import Home from './pages/Home'
+import Layout from './Layout';
 
 const Router = props => {
     return <BrowserRouter>
         <Routes>
             <Route index path='/' element={
-                <Button white>test</Button>
+               <Layout minimumHeader={false}>
+                    <Home />
+               </Layout>
             }></Route>
             {/* home */}
 
