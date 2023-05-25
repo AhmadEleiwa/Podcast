@@ -1,7 +1,7 @@
 import { Button as MUIButton } from "@mui/material";
 /**
  *
- * @param {{color:String, onClick:()=>{}}} props
+ * @param {{color:String, variant: "outlined" | "contained"}} props
  * @returns
  */
 const Button = (props) => {
