@@ -24,6 +24,7 @@ const Router = props => {
         <Route path="/signup" element={<AuthPage />}></Route>
       </Routes>
     </BrowserRouter>
+  
 };
 
 export default Router;
