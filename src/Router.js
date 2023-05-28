@@ -1,18 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from './pages/Home'
-import Layout from './Layout';
+import Home from "./pages/Home";
+import Layout from "./Layout";
 
-const Router = props => {
-    return <BrowserRouter>
-        <Routes>
-            <Route index path='/' element={
-               <Layout minimumHeader={false}>
-                    <Home />
-               </Layout>
-            }></Route>
-            {/* home */}
-
+const Router = (props) => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          index
+          path="/"
+          element={
+            <Layout minimumHeader={false}>
+              <Home />
+            </Layout>
+          }
+        ></Route>
+        {/* home */}
 
         <Route path="/pricing"></Route>
         {/* Explore - Need Wrapping with Guard */}
@@ -24,7 +28,7 @@ const Router = props => {
         <Route path="/signup" element={<AuthPage />}></Route>
       </Routes>
     </BrowserRouter>
-  
+  );
 };
 
 export default Router;
