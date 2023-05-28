@@ -36,7 +36,7 @@ const SearchField = (props) => {
       display={"flex"}
       alignItems={"center"}
       border={"1px solid black"}
-      width={"30em"}
+      width={{xs:'100%', lg:"30em"}}
       borderRadius={8}
       justifyContent={"space-between"}
       borderColor={theme.palette.primary.main}
