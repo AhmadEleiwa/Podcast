@@ -1,30 +1,30 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Button from './shared/Button'
+import Home from './pages/Home'
+import Layout from './Layout';
 
 const Router = props => {
     return <BrowserRouter>
         <Routes>
             <Route index path='/' element={
-                <Button white>test</Button>
+               <Layout minimumHeader={false}>
+                    <Home />
+               </Layout>
             }></Route>
             {/* home */}
 
-            <Route path='/Explore'></Route>
-            {/* Explore - Need Wrapping with Guard */}
 
-            <Route path='/pricing'></Route>
-            {/* Explore - Need Wrapping with Guard */}
+        <Route path="/pricing"></Route>
+        {/* Explore - Need Wrapping with Guard */}
 
-            <Route path='/dashbord'></Route>
-            {/* Explore - Need Wrapping with Guard */}
+        <Route path="/dashbord"></Route>
+        {/* Explore - Need Wrapping with Guard */}
 
-            <Route path='login'></Route>
-            <Route path='signup'></Route>
-
-
-        </Routes>
+        <Route path="/login" element={<AuthPage login />}></Route>
+        <Route path="/signup" element={<AuthPage />}></Route>
+      </Routes>
     </BrowserRouter>
-}
+  
+};
 
-export default Router
+export default Router;
