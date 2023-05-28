@@ -1,16 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Button from "./shared/Button";
-import AuthPage from "./pages/Auth";
-const Router = (props) => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route index path="/" element={<Button white>test</Button>}></Route>
-        {/* home */}
+import Home from './pages/Home'
+import Layout from './Layout';
 
-        <Route path="/Explore"></Route>
-        {/* Explore - Need Wrapping with Guard */}
+const Router = props => {
+    return <BrowserRouter>
+        <Routes>
+            <Route index path='/' element={
+               <Layout minimumHeader={false}>
+                    <Home />
+               </Layout>
+            }></Route>
+            {/* home */}
+
 
         <Route path="/pricing"></Route>
         {/* Explore - Need Wrapping with Guard */}

@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import Button from "../Button";
 const PlayerSticker = (props) => {
   return (
-    <Box display={"flex"} flexDirection={"column"} alignContent={"center"}>
+    <Box display={"flex"} width={'100%'} flexDirection={"column"} alignContent={"center"}>
       <Box display={"flex"} alignContent={"cneter"} justifyContent={"center"}>
         <Typography
           color={"primary"}
