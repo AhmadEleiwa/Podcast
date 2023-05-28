@@ -4,7 +4,6 @@ import { IconButton, Box, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { useTheme } from "@emotion/react";
 
-
 import {
   Explore,
   ArrowRightAltOutlined,
@@ -67,23 +66,23 @@ const RightSide = (props) => {
         >
           <RouteLink>
             <MenuItem onClick={handleClose}>
-              <Explore />
+              <Explore to='/' />
               Explore
             </MenuItem>
           </RouteLink>
-          <RouteLink>
+          <RouteLink to={'/'}>
             <MenuItem onClick={handleClose}>
               <ArrowRightAltOutlined />
               Why eVOZ
             </MenuItem>
           </RouteLink>
-          <RouteLink to={"/gg"}>
+          <RouteLink to={"/"}>
             <MenuItem onClick={handleClose}>
               <CreditCard />
               Pricing
             </MenuItem>
           </RouteLink>
-          <RouteLink to={"/gg"}>
+          <RouteLink to={"/"}>
             <MenuItem onClick={handleClose}>
               <Help />
               Help
@@ -104,7 +103,8 @@ const RightSide = (props) => {
         <Link to="/">Pricing</Link>
       </Box>
       <Box display={{ xs: "none", md: "flex" }} alignItems={"center"} gap={5}>
-        <Link
+        <RouteLink
+          to={"/signup"}
           style={{
             backgroundColor: theme.palette.white.main,
             color: theme.palette.white.contrastText,
@@ -112,14 +112,13 @@ const RightSide = (props) => {
             borderRadius: "3px",
           }}
           variant="contained"
-          disableElevation
           color="white"
         >
           Sign up
-        </Link>
-        <Link disableElevation color="white">
+        </RouteLink>
+        <RouteLink to="/login" color="white">
           Log in
-        </Link>
+        </RouteLink>
         <select
           style={{
             backgroundColor: "transparent",
