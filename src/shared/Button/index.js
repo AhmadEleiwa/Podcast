@@ -1,7 +1,7 @@
 import { Button as MUIButton } from "@mui/material";
 /**
  *
- * @param {{color:String, variant: "outlined" | "contained"}} props
+ * @param {{color:String, variant: "outlined" | "contained", type:'button' | 'submit'}} props
  * @returns
  */
 const Button = (props) => {
@@ -11,6 +11,7 @@ const Button = (props) => {
       sx={{ borderRadius: "50em" }}
       color={props.color ? props.color : "primary"}
       onClick={props.onClick}
+      type={props.type}
     >
       {props.children}
     </MUIButton>
