@@ -18,6 +18,7 @@ import Button from "../../shared/Button";
 
 import Header from "../../shared/Header";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 /**
  *
@@ -27,14 +28,19 @@ import { useNavigate } from "react-router-dom";
 const AuthPage = (props) => {
   const [data, setData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
-
-  const navigate = useNavigate()
+  const [cookies, setCookies] = useCookies();
+  const navigate = useNavigate();
   const signUp = async (e) => {
     e.preventDefault();
     setLoading(true);
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((p) => {
         setLoading(false);
+        setCookies("auth", {
+          uid: p.user.uid,
+          token: p.user.accessToken,
+        });
+        navigate("/");
       })
       .catch((p) => {
         setLoading(false);
@@ -45,10 +51,13 @@ const AuthPage = (props) => {
 
     setLoading(true);
     signInWithEmailAndPassword(auth, data.email, data.password)
-      .then((user) => {
-        console.log(user.user);
+      .then((p) => {
         setLoading(false);
-        navigate('/')
+        setCookies("auth", {
+          uid: p.user.uid,
+          token: p.user.accessToken,
+        });
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
@@ -64,10 +73,13 @@ const AuthPage = (props) => {
   };
   const signInWithGoogle = async () => {
     signInWithPopup(auth, googleProvider).then((p) => {
-      console.log(p)
-      navigate('/')
+      console.log(p.user);
+      setCookies("auth", {
+        uid: p.user.uid,
+        token: p.user.accessToken,
+      });
+      navigate("/");
     });
-
   };
   return (
     <Box
