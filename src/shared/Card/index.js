@@ -16,6 +16,7 @@ import { useCast } from "../../context/useCast";
  * media: String,
  * title: String,
  * height: String | number,
+ * width : string | number.
  * genre: String}} props
  * @returns MUICard
  */
@@ -25,7 +26,7 @@ const Card = (props) => {
     <MUICard
       onClick={()=>playtingCastHandler(props.id)}
       className={style.card}
-      sx={{ height: props.height ? props.height : "200px", cursor:'pointer' }}
+      sx={{ height: props.height ? props.height : "200px", cursor:'pointer', width:props.width }}
     >
       <CardMedia component={"img"} src={props.media} />
       <CardContent className={style.cardContent}>
