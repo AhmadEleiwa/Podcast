@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef,  } from "react";
 
 import { IconButton, Box } from "@mui/material";
 import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import "./style.css";
 import Body from "./Body";
 import { useCast } from "../../context/useCast";
+import { useResolvedPath } from "react-router-dom";
 /**
  *
  * @param {{
@@ -17,9 +18,9 @@ import { useCast } from "../../context/useCast";
 const Player = (props) => {
   const audioCard = useRef(null);
   const dragInd = useRef(null);
-
+  const path = useResolvedPath();
   const cast = useCast();
-  let data = cast.data[0];
+  let show = path.pathname !== '/login' && path.pathname !== '/signup' && path.pathname !== '/pricing'
   const moveHandler = (e) => {
     // This handler for move the card by the mouse position
     if (e.clientX - dragInd.current.offsetWidth * 0.5 >= 0)
@@ -40,6 +41,10 @@ const Player = (props) => {
 
     audioCard.current.style.top = "50%";
     audioCard.current.style.left = "70%";
+    window.addEventListener('resize', (e)=>{
+      if(window.innerWidth < 600)
+      audioCard.current.style.left ='0%';
+    })
     return () => {
       window.removeEventListener("mousemove", moveHandler);
     };
@@ -53,11 +58,12 @@ const Player = (props) => {
     // to remove the listener when the mouse button up from the audio card
     window.removeEventListener("mousemove", moveHandler);
   };
+
   return (
     <Box
       className={"audioCard"}
       onMouseUp={onMouseupHandler}
-      display={"flex"}
+      display={  show ? "flex": 'none'}
       alignItems={"center"}
       justifyContent={"space-around"}
       top={0}
@@ -65,10 +71,11 @@ const Player = (props) => {
       zIndex={50}
       position={"absolute"}
       overflow={"hidden"}
-      borderRadius={"8px"}
+      borderRadius={"16px"}
       width={"400px"}
       height={"7em"}
       ref={audioCard}
+  
     >
       <div className={"back"}></div>
       <div className={"left"}>
@@ -81,7 +88,7 @@ const Player = (props) => {
         >
           <DragIndicatorIcon />
         </IconButton>
-        <img src={cast.playingCast.cover} alt={cast.playingCast.title} />
+       {cast.playingCast.cover && <img src={cast.playingCast.cover} alt={cast.playingCast.title} />}
       </div>
       <Body audio={cast.playingCast.url} title={cast.playingCast.title} />
     </Box>
