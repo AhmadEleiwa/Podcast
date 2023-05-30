@@ -1,7 +1,13 @@
-import { CardContent, CardMedia, Card as MUICard, Typography } from "@mui/material"
+import {
+  CardContent,
+  CardMedia,
+  Card as MUICard,
+  Typography,
+} from "@mui/material";
 
-import style from './style.module.css'
-import { Link } from "react-router-dom"
+import style from "./style.module.css";
+import { Link } from "react-router-dom";
+import { useCast } from "../../context/useCast";
 
 /**
  * Custom Card using MUI Card component. Allow the card to be a link
@@ -9,25 +15,29 @@ import { Link } from "react-router-dom"
  * to: String,
  * media: String,
  * title: String,
- * genre: String}} props 
- * @returns Link / MUICard
+ * height: String | number,
+ * genre: String}} props
+ * @returns MUICard
  */
-const Card = props => {
-    return <Link to={props.to}>
-        <MUICard className={style.card} >
-            <CardMedia component={'img'} src={props.media} />
-            <CardContent className={style.cardContent}>
-                <Typography varint='h2' component={'h2'}  >
-                    {props.title}
-                </Typography>
-                <Typography component={'p'} variant="p" >
-                    {props.genre}
-                </Typography>
-            </CardContent>
-        </MUICard>
-    </Link > // when to property not null 
+const Card = (props) => {
+    const{ playtingCastHandler} = useCast()
+  return (
+    <MUICard
+      onClick={()=>playtingCastHandler(props.id)}
+      className={style.card}
+      sx={{ height: props.height ? props.height : "200px", cursor:'pointer' }}
+    >
+      <CardMedia component={"img"} src={props.media} />
+      <CardContent className={style.cardContent}>
+        <Typography varint="h2" component={"h2"}>
+          {props.title}
+        </Typography>
+        <Typography component={"p"} variant="p">
+          {props.genre}
+        </Typography>
+      </CardContent>
+    </MUICard>
+  );
+};
 
-
-}
-
-export default Card
+export default Card;

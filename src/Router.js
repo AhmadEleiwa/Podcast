@@ -1,19 +1,58 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { initializeApp } from "firebase/app";
-import {getAuth,GoogleAuthProvider} from 'firebase/auth'
+import Home from "./pages/Home";
+import Layout from "./Layout";
+import Dashboard from "./pages/Dashboard";
+import AuthPage from "./pages/Auth";
+import Guard, { LoginGuard } from "./Guards";
+import Logout from "./pages/Logout";
+const Router = (props) => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          index
+          path="/"
+          element={
+            <Layout minimumHeader={false}>
+              <Home />
+            </Layout>
+          }
+        ></Route>
+        {/* home */}
+        <Route path="/logout" element={<Logout />}></Route>
+        <Route path="/pricing"></Route>
+        {/* Explore - Need Wrapping with Guard */}
 
+        <Route
+          path="/dashboard"
+          element={
+            <Guard>
+              <Dashboard />
+            </Guard>
+          }
+        ></Route>
+        {/* Explore - Need Wrapping with Guard */}
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBfbU9x8gwqNbIy4D_BJXgNyyu6II0IXSA",
-  authDomain: "podcast-3f335.firebaseapp.com",
-  projectId: "podcast-3f335",
-  storageBucket: "podcast-3f335.appspot.com",
-  messagingSenderId: "26160775754",
-  appId: "1:26160775754:web:aa54feb7cca89e7b2d1cb3",
-  measurementId: "G-NY3YNCDWVX"
+        <Route
+          path="/login"
+          element={
+            <LoginGuard>
+              <AuthPage login />
+            </LoginGuard>
+          }
+        ></Route>
+        <Route
+          path="/signup"
+          element={
+            <LoginGuard>
+              <AuthPage />
+            </LoginGuard>
+          }
+        ></Route>
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
-
-const app = initializeApp(firebaseConfig);
-export const  auth = getAuth(app)
-export const googleProvider = new GoogleAuthProvider()
+export default Router;

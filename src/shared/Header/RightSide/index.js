@@ -11,12 +11,16 @@ import {
   Help,
   Menu as MenuIcon,
 } from "@mui/icons-material";
+import { useCookies } from "react-cookie";
 
 const RightSide = (props) => {
   const theme = useTheme();
-
+  const [cookies] = useCookies();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+
+  let token = cookies.auth?.token;
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -66,11 +70,11 @@ const RightSide = (props) => {
         >
           <RouteLink>
             <MenuItem onClick={handleClose}>
-              <Explore to='/' />
+              <Explore to="/" />
               Explore
             </MenuItem>
           </RouteLink>
-          <RouteLink to={'/'}>
+          <RouteLink to={"/"}>
             <MenuItem onClick={handleClose}>
               <ArrowRightAltOutlined />
               Why eVOZ
@@ -103,22 +107,41 @@ const RightSide = (props) => {
         <Link to="/">Pricing</Link>
       </Box>
       <Box display={{ xs: "none", md: "flex" }} alignItems={"center"} gap={5}>
-        <RouteLink
-          to={"/signup"}
-          style={{
-            backgroundColor: theme.palette.white.main,
-            color: theme.palette.white.contrastText,
-            padding: ".5em   1em",
-            borderRadius: "3px",
-          }}
-          variant="contained"
-          color="white"
-        >
-          Sign up
-        </RouteLink>
-        <RouteLink to="/login" color="white">
-          Log in
-        </RouteLink>
+        {token ? (
+          <RouteLink
+            to={"/logout"}
+            style={{
+              backgroundColor: theme.palette.white.main,
+              color: theme.palette.white.contrastText,
+              padding: ".5em   1em",
+              borderRadius: "3px",
+            }}
+            variant="contained"
+            color="white"
+          >
+            logout
+          </RouteLink>
+        ) : (
+          <>
+            {" "}
+            <RouteLink
+              to={"/signup"}
+              style={{
+                backgroundColor: theme.palette.white.main,
+                color: theme.palette.white.contrastText,
+                padding: ".5em   1em",
+                borderRadius: "3px",
+              }}
+              variant="contained"
+              color="white"
+            >
+              Sign up
+            </RouteLink>
+            <RouteLink to="/login" color="white">
+              Log in
+            </RouteLink>
+          </>
+        )}
         <select
           style={{
             backgroundColor: "transparent",
