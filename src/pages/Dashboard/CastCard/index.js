@@ -11,16 +11,17 @@ import {
 } from "@mui/material";
 
 import Button from "../../../shared/Button";
+import { useCast } from "../../../context/useCast";
 let colors = ["#D5F7FD", "#DAD8FB", "#FDF5D0"];
-const CastCard = ({ title, avatar, description, genres }) => {
+const CastCard = ({ title, avatar, description, genres, id }) => {
   const theme = useTheme();
+  const {playtingCastHandler} = useCast()
   return (
     <Card
-    
       sx={{
         maxWidth: "100%",
-        height:'100%',
-        border: "1px solid" + theme.palette.primary.main,
+        borderRadius: 4,
+        border: "2px solid" + theme.palette.primary.main,
       }}
     >
       <CardHeader
@@ -34,7 +35,13 @@ const CastCard = ({ title, avatar, description, genres }) => {
       <CardContent>
         <Box marginY={4} display={"flex"} gap={1} flexWrap={"wrap"}>
           {genres.map((item, index) => {
-            return <Chip key={item} label={item} sx={{ bgcolor: colors[index % 3] }} />;
+            return (
+              <Chip
+                key={item}
+                label={item}
+                sx={{ bgcolor: colors[index % 3] }}
+              />
+            );
           })}
         </Box>
         <Typography variant="p">
@@ -45,8 +52,8 @@ const CastCard = ({ title, avatar, description, genres }) => {
           reiciendis ex molestias.
         </Typography>
       </CardContent>
-      <CardActions sx={{marginTop:'6em'}}>
-        <Button fullWidth variant="contained">
+      <CardActions sx={{ marginTop: "2em" }}>
+        <Button fullWidth variant="contained" onClick={()=>playtingCastHandler(id)}>
           Listen now
         </Button>
       </CardActions>

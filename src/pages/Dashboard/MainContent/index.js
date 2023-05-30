@@ -12,42 +12,48 @@ const MainContent = () => {
     <Box
       display={"flex"}
       flexDirection={{ xs: "column", lg: "row" }}
-      justifyContent={"space-around"}
+      justifyContent={"space-between"}
       width={"90%"}
       gap={2}
     >
       {maincast && (
         <Box
-          marginTop={6}
-          width={{ xs: "100%", lg: "40%" }}
+          width={{ xs: "100%", lg: "30%" }}
           display={"flex"}
           gap={2}
           flexDirection={"column"}
           justifyContent={"center"}
         >
-          <Card media={maincast.artworkUrl600} title="" to="" genre="" />
+          <Card
+            height={"16em"}
+            media={maincast.artworkUrl600}
+            title={maincast.trackName}
+            id={maincast.id}
+            genre={maincast.genres[0]}
+          />
           <CastCard
             title={maincast.trackName}
             avatar={maincast.artworkUrl100}
             genres={maincast.genres}
+            id={maincast.id}
           />
         </Box>
       )}
       <Box
-        width={{ xs: "100%", lg: "auto" }}
+        width={{ xs: "100%", lg: "60%" }}
         display="flex"
         gap={2}
         flexDirection={"column"}
       >
-        <Typography variant="h5">Saved for later</Typography>
+        <Typography variant="h4">Saved for later</Typography>
         <Box display={"flex"} gap={1} overflow={"auto"}>
           {cast.map((item, index) => {
             return (
               <Card
                 key={index}
-                media={item.artworkUrl100}
+                media={item.artworkUrl600}
                 title=""
-                to=""
+                id={item.id}
                 genre=""
               />
             );
