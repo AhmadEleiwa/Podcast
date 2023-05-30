@@ -1,10 +1,10 @@
 import Button from "../../Button";
-import {Box, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 /**
- * 
- * @param {{minimum:Boolean}} props 
- * @returns 
+ *
+ * @param {{minimum:Boolean}} props
+ * @returns
  */
 const LeftSide = (props) => {
   return (
@@ -35,7 +35,9 @@ const LeftSide = (props) => {
             margin={"4em"}
             position={"realtive"}
           >
-            <img src="assets/Logo.png" alt="logo" />
+            <Box>
+              <img src="assets/Logo.png" alt="logo" />
+            </Box>
             <Box>
               <Typography
                 textTransform={"uppercase"}
@@ -67,6 +69,7 @@ const LeftSide = (props) => {
       <Box width={"40%"} display={{ xs: "block", md: "none" }}>
         <Box
           width={"100%"}
+          height={"4em"}
           display="flex"
           flexDirection={"column"}
           alignItems={"center"}
@@ -82,5 +85,4 @@ const LeftSide = (props) => {
   );
 };
 
-
-export default LeftSide
+export default LeftSide;
