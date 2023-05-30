@@ -21,7 +21,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CastProvider>
-        <Player  />
+
         <Router />
       </CastProvider>
     </ThemeProvider>
