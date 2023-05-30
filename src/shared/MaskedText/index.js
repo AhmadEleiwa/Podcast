@@ -19,9 +19,14 @@ const MaskedText = (props) => {
       bgcolor={"primary"}
       sx={{ backgroundColor: theme.palette.primary.main}}
       color="secondary"
-      variant="h1"
-      component={"span"}
-      fontSize={"inherit"}
+      variant="h4"
+      component={props.width ? "div" :"span"}
+      fontSize={props.width ? 'auto' :"inherit"}
+      textAlign={'center'}
+      width={props.width ? props.width: "auto"}
+      margin={'0 auto'}
+      paddingY={1}
+      paddingX={'0.1em'}
     >
       {props.children}
     </Typography>
