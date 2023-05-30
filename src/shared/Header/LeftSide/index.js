@@ -78,7 +78,9 @@ const LeftSide = (props) => {
           gap={5}
           position={"relative"}
         >
-          <img src="assets/LogoPurple.png" alt="logo" />
+          <Box>
+            <img src="assets/LogoPurple.png" alt="logo" />
+          </Box>
         </Box>
       </Box>
     </>
