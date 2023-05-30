@@ -1,10 +1,11 @@
 import { useCookies } from "react-cookie";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Logout = () => {
   const [cookies, setCookies, removeCookies] = useCookies();
 
   removeCookies("auth");
+
   return <Navigate to="/" />;
 };
 
