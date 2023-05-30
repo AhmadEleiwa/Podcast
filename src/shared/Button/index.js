@@ -13,6 +13,7 @@ const Button = (props) => {
       onClick={props.onClick}
       type={props.type}
       fullWidth={props.fullWidth}
+      startIcon={props.startIcon}
     >
       {props.children}
     </MUIButton>
