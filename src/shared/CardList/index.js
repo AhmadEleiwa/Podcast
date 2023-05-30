@@ -13,10 +13,10 @@ const CardList = props => {
         {sizes.map((i, index) =>
             <Grid item sm={i} xs={12}  key={index} >
                 <Card
-                    to={props.items[index].to}
-                    title={props.items[index].title}
-                    media={props.items[index].media}
-                    genre={props.items[index].genre} />
+                    id={props.items[index].id}
+                    title={props.items[index].trackName}
+                    media={props.items[index].artworkUrl600}
+                    genre={props.items[index].genres[0]} />
             </Grid>
         )}
     </Grid >
