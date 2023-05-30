@@ -20,7 +20,7 @@ const Item = (props) => {
         <Typography variant="h5" fontSize={"18px"} fontWeight={"700"}>
          {props.title}
         </Typography>
-        <Typography variant="p" fontSize={"18px"}>
+        <Typography variant="p" fontSize={"18px"} color={'#4f4f4f'}>
         {props.description}
         </Typography>
       </Box>
