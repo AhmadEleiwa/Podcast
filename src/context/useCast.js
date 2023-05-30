@@ -3,23 +3,43 @@ import api, { getAudioByFeed } from "./api";
 
 const CastContext = createContext({
   data: [],
+  playingCast: { title: "", cover: "", url: "" },
+  playtingCastHandler: () => {},
 });
 
 export const useCast = () => useContext(CastContext);
 
 export const CastProvider = ({ children }) => {
   const [data, setData] = useState([]);
-
+  const [playingCast, setPlayingCast] = useState({
+    title: "",
+    cover: "",
+    url: "",
+  });
+  const playtingCastHandler = (id) => {
+    const cast = data.find((p) => p.id === id);
+    getAudioByFeed(cast.feed)
+      .then((res) =>
+        setPlayingCast({
+          title: cast.trackName,
+          cover: cast.artworkUrl600,
+          url: res,
+        })
+      )
+      .catch((err) => console.log(err));
+  };
   useEffect(() => {
     api()
       .then((res) => {
         let result = res.data.results;
-       
-        let apiData = result.map((cast) => {
 
+        let apiData = result.map((cast) => {
           return {
+            id: cast.trackId,
             artistName: cast.artistName,
             artworkUrl600: cast.artworkUrl600,
+            artworkUrl100: cast.artworkUrl100,
+            trackName: cast.trackName,
             feed: cast.feedUrl,
             genres: cast.genres,
           };
@@ -33,6 +53,8 @@ export const CastProvider = ({ children }) => {
     <CastContext.Provider
       value={{
         data,
+        playingCast,
+        playtingCastHandler,
       }}
     >
       {children}
