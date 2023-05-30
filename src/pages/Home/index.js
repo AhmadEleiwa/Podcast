@@ -1,8 +1,10 @@
+import { useCast } from "../../context/useCast";
 import CardList from "../../shared/CardList";
 import PlayerSticker from "../../shared/PlayerSticker";
 import ThinkingSection from "../../shared/ThinkingSection";
-const { Box } = require("@mui/material");
+import  { Box } from "@mui/material"
 const Home = () => {
+  const { data } = useCast();
   return (
     <Box
       display={"flex"}
@@ -11,64 +13,7 @@ const Home = () => {
       marginY={8}
       gap={8}
     >
-      <CardList
-        items={[
-          {
-            title: "name",
-            to: "/",
-            media: "https://picsum.photos/200/300",
-            genre: "Music",
-          },
-          {
-            title: "name",
-            to: "/",
-            media: "https://picsum.photos/200/300",
-            genre: "Music",
-          },
-          {
-            title: "name",
-            to: "/",
-            media: "https://picsum.photos/200/300",
-            genre: "Music",
-          },
-          {
-            title: "name",
-            to: "/",
-            media: "https://picsum.photos/200/300",
-            genre: "Music",
-          },
-          {
-            title: "name",
-            to: "/",
-            media: "https://picsum.photos/200/300",
-            genre: "Music",
-          },
-          {
-            title: "name",
-            to: "/",
-            media: "https://picsum.photos/200/300",
-            genre: "Music",
-          },
-          {
-            title: "name",
-            to: "/",
-            media: "https://picsum.photos/200/300",
-            genre: "Music",
-          },
-          {
-            title: "name",
-            to: "/",
-            media: "https://picsum.photos/200/300",
-            genre: "Music",
-          },
-          {
-            title: "name",
-            to: "/",
-            media: "https://picsum.photos/200/300",
-            genre: "Music",
-          },
-        ]}
-      />
+      {data.length !== 0 && <CardList items={data} />}
       <ThinkingSection />
       <PlayerSticker />
     </Box>
