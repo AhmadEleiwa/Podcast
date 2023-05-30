@@ -2,8 +2,8 @@ import axios from "axios";
 
 /**
  * Get all podcasts whitch talk about 'podcast'
- * @param {number} limit 
- * @returns 
+ * @param {number} limit
+ * @returns
  */
 const api = async (limit = 100) => {
   let src =
@@ -15,9 +15,9 @@ const api = async (limit = 100) => {
 
 /**
  * Search the casts with an keyword
- * @param {string} searchKeyword 
- * @param {number} limit 
- * @returns 
+ * @param {string} searchKeyword
+ * @param {number} limit
+ * @returns
  */
 export const search = async (searchKeyword, limit = 100) => {
   let src = `https://itunes.apple.com/search?term=${searchKeyword}&media=podcast&limits=${limit}`;
@@ -27,17 +27,21 @@ export const search = async (searchKeyword, limit = 100) => {
 
 /**
  * getAudioByFeed is function that take urlFeed and return audioUrl
- * @param {string} url 
- * @returns 
+ * @param {string} url
+ * @returns
  */
 export const getAudioByFeed = async (url) => {
   let res = await axios.get(url);
   const encStart = res.data.indexOf("<enclosure");
   const urlStart = res.data.slice(encStart, encStart + 400).indexOf("url");
-  const end = res.data
+  let end = res.data
     .slice(encStart + urlStart + 5, encStart + 400)
     .indexOf('"');
-  return res.data.slice(urlStart + encStart + 5, encStart + urlStart + end);
+  const string = res.data.slice(
+    urlStart + encStart + 5,
+    encStart + urlStart + end
+  );
+  return string;
 };
 
 export default api;
