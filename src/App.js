@@ -2,7 +2,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import "./App.css";
 import Router from "./Router";
 import { CastProvider } from "./context/useCast";
-
+import Player from './shared/Player'
 const theme = createTheme({
   palette: {
     primary: {
@@ -21,6 +21,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CastProvider>
+        <Player  />
         <Router />
       </CastProvider>
     </ThemeProvider>
