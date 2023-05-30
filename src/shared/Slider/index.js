@@ -48,6 +48,7 @@ const Slider = props => {
             className={style.arrowBox}
             sx={{ background: "linear-gradient(to right, white, rgba(0, 0, 0, 0))" }}
             position={'absolute'}
+            zIndex={8}
             left='0'
         >
             <IconButton
@@ -65,6 +66,9 @@ const Slider = props => {
             sx={{ background: "linear-gradient(to left, white, rgba(0, 0, 0, 0))" }}
             position={'absolute'}
             right='0'
+            top={'0'}
+            zIndex={8}
+            bgcolor={'red'}
             justifyContent={'flex-end'}
         >
             <IconButton
@@ -84,12 +88,14 @@ const Slider = props => {
             className={style.slider}
             display={'flex'}
             gap={'1em'}
+            margin={'0 auto'}
             ref={slider}
             sx={{ scrollSnapAlign: 'center' }}
         >
             {props.children && props.children.map((item, index) => {
                 return <Box ref={offset} key={index} >
                     {item}
+        
                 </Box>
             })}
         </Box>
