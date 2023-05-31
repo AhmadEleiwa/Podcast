@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-Podcast website buit using react and firebase. By using the apple podcast API i create podcast host witch allow the user to create an account and listen to podcasts. You can try [Demo](https://ahmadeleiwa.github.io/Podcast/) 
+Podcast website buit using react and firebase. By using the apple podcast API i create podcast host witch allow the user to create an account and listen to podcasts. You can try [Demo](https://ahmadeleiwa.github.io/Podcast/). And this project is Final tranning project in **GSG**
 
 ## How To Run 
 You can download the project and try it with command below. Or even open [Demo](https://ahmadeleiwa.github.io/Podcast/) 
@@ -12,7 +12,7 @@ npm start
 * Authentication System
 * Listen to several podcasts
 * Dashboard
-* Freindly Player UI to keep with you in all pages
+* Friendly Player UI to keep with you in all pages
 ## Future Features
 * Search System
 * Save podcasts
