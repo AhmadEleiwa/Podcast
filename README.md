@@ -17,4 +17,4 @@ npm start
 * Search System
 * Save podcasts
 ## API 
-I used Apple podcast API [Checkout](https://performance-partners.apple.com/search-api)
+I used Apple podcast API [Checkout](https://performance-partners.apple.com/search-api) this link to view more details
