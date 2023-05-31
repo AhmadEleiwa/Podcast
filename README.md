@@ -13,7 +13,7 @@ npm start
 * Listen to several podcasts
 * Dashboard
 * Freindly Player UI to keep with you in all pages
-## Feature Features
+## Future Features
 * Search System
 * Save podcasts
 ## API 
