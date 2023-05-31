@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import Header from "../../../shared/Header";
 import Button from "../../../shared/Button";
+import { Link } from "react-router-dom";
 const SubHeader = () => {
   return (
     <>
@@ -29,9 +30,11 @@ const SubHeader = () => {
         height={"5em"}
         marginBottom={14}
       >
-        <Box>
-          <img src="assets/LogoPurple.png" />
-        </Box>
+        <Link to="/">
+          <Box>
+            <img src="assets/LogoPurple.png" />
+          </Box>
+        </Link>
         <Box display={"flex"} alignItems={"center"} gap={4}>
           <Button startIcon={<Add />}>Publish</Button>
           <MUIButton startIcon={<BookmarkAddOutlined />}>
@@ -60,7 +63,7 @@ const SubHeader = () => {
           </IconButton>
         </Box>
       </Box>
-      <Box display={{xs:'block', lg:'none'}}>
+      <Box display={{ xs: "block", lg: "none" }}>
         <Header minimum />
       </Box>
     </>

@@ -27,7 +27,7 @@ const CastCard = ({ title, avatar, description, genres, id }) => {
       <CardHeader
         avatar={
           <Avatar>
-            <img src={avatar} />
+            <img src={avatar} alt="avatar" />
           </Avatar>
         }
         title={title}

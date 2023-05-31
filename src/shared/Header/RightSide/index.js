@@ -1,4 +1,4 @@
-import { Link as RouteLink } from "react-router-dom";
+import { Link as RouteLink, useResolvedPath } from "react-router-dom";
 import Link from "../../Link";
 import { IconButton, Box, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
@@ -18,6 +18,7 @@ const RightSide = (props) => {
   const [cookies] = useCookies();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const path = useResolvedPath()
 
   let token = cookies.auth?.token;
 
@@ -70,7 +71,7 @@ const RightSide = (props) => {
         >
           <RouteLink>
             <MenuItem onClick={handleClose}>
-              <Explore to="/" />
+              <Explore to="/explore" />
               Explore
             </MenuItem>
           </RouteLink>
@@ -100,14 +101,15 @@ const RightSide = (props) => {
         justifyContent={"center"}
         gap={5}
       >
-        <Link active to="/">
+        <Link active ={path.pathname == '/'} to="/">
           Home
         </Link>
-        <Link to="/">Explore</Link>
-        <Link to="/">Pricing</Link>
+        <Link active ={path.pathname == '/explore'} to="/explore">Explore</Link>
+        <Link active ={path.pathname == '/pricing'} to="/pricing">Pricing</Link>
       </Box>
       <Box display={{ xs: "none", md: "flex" }} alignItems={"center"} gap={5}>
         {token ? (
+          <>
           <RouteLink
             to={"/logout"}
             style={{
@@ -121,6 +123,8 @@ const RightSide = (props) => {
           >
             logout
           </RouteLink>
+          <Link  to={'/dashboard'} >Dashboard</Link>
+          </>
         ) : (
           <>
             {" "}
@@ -137,9 +141,9 @@ const RightSide = (props) => {
             >
               Sign up
             </RouteLink>
-            <RouteLink to="/login" color="white">
+            <Link to="/login" >
               Log in
-            </RouteLink>
+            </Link>
           </>
         )}
         <select

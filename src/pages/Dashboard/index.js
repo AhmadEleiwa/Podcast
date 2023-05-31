@@ -22,6 +22,33 @@ const Dashboard = () => {
         margin={"0 auto"}
       >
         <Box
+          position={"absolute"}
+          left={"10%"}
+          top={"28%"}
+          display={{ xs: "none", lg: "block" }}
+        >
+          <img src="assets/dots.png" alt="dots" />
+        </Box>
+        <Box
+          position={"absolute"}
+          right={"0%"}
+          top={"150em"}
+          zIndex={-1}
+          display={{ xs: "none", lg: "block" }}
+        >
+          <img src="assets/1217.png" alt="torch" />
+        </Box>
+
+        <Box
+          position={"absolute"}
+          left={"0%"}
+          top={"190em"}
+          zIndex={-1}
+          display={{ xs: "none", lg: "block" }}
+        >
+          <img src="assets/1241.png" alt="footer" />
+        </Box>
+        <Box
           width={{ xs: "90%", lg: "50%" }}
           display={"flex"}
           flexDirection={"column"}

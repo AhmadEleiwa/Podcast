@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api, { getAudioByFeed } from "./api";
+import { useCookies } from "react-cookie";
 
 const CastContext = createContext({
   data: [],
@@ -11,12 +12,14 @@ export const useCast = () => useContext(CastContext);
 
 export const CastProvider = ({ children }) => {
   const [data, setData] = useState([]);
+  const [cookies] = useCookies();
   const [playingCast, setPlayingCast] = useState({
     title: "",
     cover: "",
     url: "",
   });
   const playtingCastHandler = (id) => {
+    if (!cookies.auth ) return;
     const cast = data.find((p) => p.id === id);
     getAudioByFeed(cast.feed)
       .then((res) =>

@@ -5,10 +5,9 @@ import axios from "axios";
  * @param {number} limit
  * @returns
  */
-const api = async (limit = 100) => {
+const api = async (limit = 300) => {
   let src =
-    "https://itunes.apple.com/search?term=podcast&media=podcast&limits=" +
-    limit;
+    `https://itunes.apple.com/search?term=all&media=podcast&limit=${limit}`;
 
   return await axios.get(src);
 };
@@ -20,7 +19,7 @@ const api = async (limit = 100) => {
  * @returns
  */
 export const search = async (searchKeyword, limit = 100) => {
-  let src = `https://itunes.apple.com/search?term=${searchKeyword}&media=podcast&limits=${limit}`;
+  let src = `https://itunes.apple.com/search?term=${searchKeyword}&media=podcast&limit=${limit}`;
 
   return await axios.get(src);
 };

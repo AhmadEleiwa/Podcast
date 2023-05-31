@@ -2,6 +2,7 @@
     border: 4px solid #816AFE;
     opacity: 70%;
     transition: opacity 0.17s linear;
+    box-shadow: 0 2px 8px #66666666;
 }
 .audioCard:hover{
     opacity: 100%;
