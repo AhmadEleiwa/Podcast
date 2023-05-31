@@ -1,3 +1,10 @@
 # Getting Started with Create React App
 
-<a href='https://github.com/users/AhmadEleiwa/projects/2/views/1?sortedBy%5Bdirection%5D=desc&sortedBy%5BcolumnId%5D=41620291&layout=board'> Project Mangnemnt </a>
+Podcast website buit using react and firebase. By using the apple podcast API i create podcast host witch allow the user to create an account and listen to podcasts. You can try [Demo](https://ahmadeleiwa.github.io/Podcast/) 
+
+## How To Run 
+You can download the project and try it with command below. Or even open [Demo](https://ahmadeleiwa.github.io/Podcast/) 
+```bash
+npm i 
+npm start
+```
