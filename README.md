@@ -8,3 +8,7 @@ You can download the project and try it with command below. Or even open [Demo](
 npm i 
 npm start
 ```
+## Features
+* Authentication System
+* Listen to several podcasts
+* Freindly Player UI to keep with you in all pages
