@@ -1,0 +1,6 @@
+.item:hover{
+    background-color: rgba(226, 225, 225, 0.518);
+}
+.box{
+    box-shadow: 0 2px 8px #66666622;
+}

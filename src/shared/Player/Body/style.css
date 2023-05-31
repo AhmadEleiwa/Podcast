@@ -1,0 +1,22 @@
+.aud {
+    z-index: 1;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.aud>*>*>*>*>*>*>* {
+    background-color: #816AFE !important;
+}
+
+.aud>*>*>*>*>*>* {
+    color: #816AFE !important;
+}
+
+.aud>*>*>* {
+    color: #816AFE !important;
+}
+
+.rhap_progress-indicator,
+.rhap_progress-filled {
+    background-color: #816AFE !important;
+}

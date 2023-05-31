@@ -1,14 +1,16 @@
+import { useCookies } from "react-cookie";
 import { Navigate } from "react-router-dom";
 
 function Guard({ children }) {
-  const token = localStorage.getItem("token");
-  if (!token) return <AccessDenied />;
+  const [cookies] = useCookies();
+  if (!cookies.auth?.token) return <Navigate to={"/login"} />;
   return <>{children}</>;
 }
 
 export function LoginGuard({ children }) {
-  const token = localStorage.getItem("token");
-  if (token) return <Navigate to="/user" />;
+  const [cookies] = useCookies();
+
+  if (cookies.auth && cookies.auth.token) return <Navigate to={"/"} />;
   return <>{children}</>;
 }
 

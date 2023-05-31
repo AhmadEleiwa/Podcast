@@ -1,0 +1,19 @@
+.card{
+    position: relative;
+    min-width: 200px;
+    border-radius: 12px !important;
+}
+
+.cardContent{
+    position: absolute;
+    width: 100%;
+    background:linear-gradient(to top, black, rgba(0, 0, 0, 0));
+    bottom: 0;
+    color: white;
+}
+.cardContent h2{
+    font-weight: bold;
+}
+.cardContent p{
+    font-size: 14px;
+}
