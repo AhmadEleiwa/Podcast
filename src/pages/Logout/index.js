@@ -2,7 +2,7 @@ import { useCookies } from "react-cookie";
 import { Navigate } from "react-router-dom";
 
 const Logout = () => {
-  const [cookies, setCookies, removeCookies] = useCookies();
+  const [, , removeCookies] = useCookies();
 
   removeCookies("auth");
 

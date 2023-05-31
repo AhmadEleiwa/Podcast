@@ -20,7 +20,7 @@ const Home = () => {
         top={"75%"}
         display={{ xs: "none", lg: "block" }}
       >
-        <img src="assets/dots.png" />
+        <img src="assets/dots.png" alt="dots" />
       </Box>
       <Box
         marginY={8}

@@ -69,9 +69,9 @@ const RightSide = (props) => {
             horizontal: "left",
           }}
         >
-          <RouteLink>
+          <RouteLink to="/explore" >
             <MenuItem onClick={handleClose}>
-              <Explore to="/explore" />
+              <Explore />
               Explore
             </MenuItem>
           </RouteLink>
@@ -81,7 +81,7 @@ const RightSide = (props) => {
               Why eVOZ
             </MenuItem>
           </RouteLink>
-          <RouteLink to={"/"}>
+          <RouteLink to={"/pricing"}>
             <MenuItem onClick={handleClose}>
               <CreditCard />
               Pricing
@@ -101,11 +101,11 @@ const RightSide = (props) => {
         justifyContent={"center"}
         gap={5}
       >
-        <Link active ={path.pathname == '/'} to="/">
+        <Link active ={path.pathname === '/'} to="/">
           Home
         </Link>
-        <Link active ={path.pathname == '/explore'} to="/explore">Explore</Link>
-        <Link active ={path.pathname == '/pricing'} to="/pricing">Pricing</Link>
+        <Link active ={path.pathname === '/explore'} to="/explore">Explore</Link>
+        <Link active ={path.pathname === '/pricing'} to="/pricing">Pricing</Link>
       </Box>
       <Box display={{ xs: "none", md: "flex" }} alignItems={"center"} gap={5}>
         {token ? (

@@ -6,7 +6,6 @@ import {
 } from "@mui/material";
 
 import style from "./style.module.css";
-import { Link } from "react-router-dom";
 import { useCast } from "../../context/useCast";
 
 /**

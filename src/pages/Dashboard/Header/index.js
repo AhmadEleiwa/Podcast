@@ -32,7 +32,7 @@ const SubHeader = () => {
       >
         <Link to="/">
           <Box>
-            <img src="assets/LogoPurple.png" />
+            <img src="assets/LogoPurple.png" alt="logo" />
           </Box>
         </Link>
         <Box display={"flex"} alignItems={"center"} gap={4}>

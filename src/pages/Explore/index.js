@@ -45,7 +45,7 @@ const Explore = () => {
         top={"34%"}
         display={{ xs: "none", lg: "block" }}
       >
-        <img src="assets/dots.png" />
+        <img src="assets/dots.png" alt="dots" />
       </Box>
       <Box
         position={"absolute"}
@@ -53,7 +53,7 @@ const Explore = () => {
         top={"50%"}
         display={{ xs: "none", lg: "block" }}
       >
-        <img src="assets/ball.png" />
+        <img src="assets/ball.png" alt="ball" />
       </Box>
       <Box
         position={"absolute"}
@@ -61,7 +61,7 @@ const Explore = () => {
         top={"72em"}
         display={{ xs: "none", lg: "block" }}
       >
-        <img src="assets/lamp.png" />
+        <img src="assets/lamp.png" alt="lamb" />
       </Box>
       <Box
         width={{ xs: "90%", lg: "50%" }}
