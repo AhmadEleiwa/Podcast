@@ -11,4 +11,10 @@ npm start
 ## Features
 * Authentication System
 * Listen to several podcasts
+* Dashboard
 * Freindly Player UI to keep with you in all pages
+## Feature Features
+* Search System
+* Save podcasts
+## API 
+I used Apple podcast API [try](https://performance-partners.apple.com/search-api)
