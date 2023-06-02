@@ -9,7 +9,6 @@ import { Box, Typography } from "@mui/material";
  */
 const LeftSide = (props) => {
   const navigate = useNavigate();
-  navigate("/");
   return (
     <>
       <Box width={"40%"} display={{ xs: "none", md: "block" }}>
