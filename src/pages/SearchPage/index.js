@@ -7,15 +7,18 @@ const SearchPage = () => {
   const { data } = useCast();
   const { trackName } = useParams();
   const casts = data.filter((p) =>
-    p.trackName.toLowerCase().startsWith(trackName)
+    p.trackName.toLowerCase().startsWith(trackName.toLowerCase())
   );
   return (
     <Box
-      width={"70%"}
+      width={{xs:'90%', lg:"70%"}}
       margin={"4em auto"}
       gap={2}
       display={"grid"}
-      gridTemplateColumns={{xs:'1fr', md:'1fr 1fr', lg:"1fr 1fr 1fr"}}
+      gridTemplateColumns={
+        casts.length <= 2 ? '1fr'
+        :{ xs: "1fr", md: "1fr 1fr", lg: "1fr 1fr 1fr" }
+    }
     >
       {casts.map((cast) => {
         return (
