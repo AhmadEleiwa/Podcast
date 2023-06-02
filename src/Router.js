@@ -10,6 +10,7 @@ import Explore from "./pages/Explore";
 import Player from "./shared/Player";
 import Pricing from "./pages/Pricing";
 import Error404 from "./pages/Error404";
+import SearchPage from "./pages/SearchPage";
 const Router = (props) => {
   return (
     <BrowserRouter>
@@ -73,11 +74,24 @@ const Router = (props) => {
             </LoginGuard>
           }
         ></Route>
-        <Route path='*' element={
-          <Layout minimumHeader={true}>
-            <Error404 />
-          </Layout>
-        } ></Route>
+        <Route path="/search">
+          <Route
+            path=":trackName"
+            element={
+              <Layout minimumHeader={true}>
+                <SearchPage />
+              </Layout>
+            }
+          ></Route>
+        </Route>
+        <Route
+          path="*"
+          element={
+            <Layout minimumHeader={true}>
+              <Error404 />
+            </Layout>
+          }
+        ></Route>
       </Routes>
     </BrowserRouter>
   );
