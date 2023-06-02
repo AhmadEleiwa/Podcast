@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../Button";
 import { Box, Typography } from "@mui/material";
 
@@ -7,6 +8,7 @@ import { Box, Typography } from "@mui/material";
  * @returns
  */
 const LeftSide = (props) => {
+  const navigate = useNavigate();
   return (
     <>
       <Box width={"40%"} display={{ xs: "none", md: "block" }}>
@@ -54,7 +56,11 @@ const LeftSide = (props) => {
                 At the same place
               </Typography>
             </Box>
-            <Button variant={"contained"} color="white">
+            <Button
+              variant={"contained"}
+              color="white"
+              onClick={() => navigate("/explore")}
+            >
               Start listening for free
             </Button>
             <Box position={"absolute"} left={"50%"}>

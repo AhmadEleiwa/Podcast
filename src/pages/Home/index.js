@@ -1,11 +1,20 @@
+import { useCookies } from "react-cookie";
 import { useCast } from "../../context/useCast";
 import CardList from "../../shared/CardList";
 import MaskedText from "../../shared/MaskedText";
 import PlayerSticker from "../../shared/PlayerSticker";
 import ThinkingSection from "../../shared/ThinkingSection";
 import { Box, Typography } from "@mui/material";
+import { useEffect } from "react";
 const Home = () => {
-  const { data } = useCast();
+  const { data, resetPlayingcastHandler } = useCast();
+  const [cookies] = useCookies();
+
+  useEffect(() => {
+    if (!cookies.auth) {
+      resetPlayingcastHandler();
+    }
+  }, []);
   return (
     <Box
       display={"flex"}

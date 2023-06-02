@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Layout from "./Layout";
@@ -9,6 +9,8 @@ import Logout from "./pages/Logout";
 import Explore from "./pages/Explore";
 import Player from "./shared/Player";
 import Pricing from "./pages/Pricing";
+import Error404 from "./pages/Error404";
+import SearchPage from "./pages/SearchPage";
 const Router = (props) => {
   return (
     <BrowserRouter>
@@ -70,6 +72,24 @@ const Router = (props) => {
             <LoginGuard>
               <AuthPage />
             </LoginGuard>
+          }
+        ></Route>
+        <Route path="/search">
+          <Route
+            path=":trackName"
+            element={
+              <Layout minimumHeader={true}>
+                <SearchPage />
+              </Layout>
+            }
+          ></Route>
+        </Route>
+        <Route
+          path="*"
+          element={
+            <Layout minimumHeader={true}>
+              <Error404 />
+            </Layout>
           }
         ></Route>
       </Routes>

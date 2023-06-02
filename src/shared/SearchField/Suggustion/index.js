@@ -10,11 +10,14 @@ const Suggustion = (props) => {
       alignItems={"center"}
       gridTemplateColumns={"1fr"}
       width={"100%"}
+      maxHeight={'14em'}
+      overflow={'hidden'}
       top={"3em"}
       borderRadius={4}
       gap={1}
       padding={"1em 0"}
       className={style.box}
+
     >
       {props.items &&
         props.items.map((item, index) => {
@@ -25,9 +28,10 @@ const Suggustion = (props) => {
               boxSizing={"border-box"}
               padding={1}
               className={style.item}
+            
             >
-              <Link to={"/" + item.id} color="black" >
-                {item.title}
+              <Link to={"/search/" + item.trackName} color="black" >
+                {item.trackName}
               </Link>
             </Box>
           );

@@ -6,6 +6,7 @@ const CastContext = createContext({
   data: [],
   playingCast: { title: "", cover: "", url: "" },
   playtingCastHandler: () => {},
+  resetPlayingcastHandler: () => {},
 });
 
 export const useCast = () => useContext(CastContext);
@@ -18,6 +19,13 @@ export const CastProvider = ({ children }) => {
     cover: "",
     url: "",
   });
+  const resetPlayingcastHandler = () =>{
+    setPlayingCast({
+      title: "",
+      cover: "",
+      url: "",
+    })
+  }
   const playtingCastHandler = (id) => {
     if (!cookies.auth ) return;
     const cast = data.find((p) => p.id === id);
@@ -58,6 +66,7 @@ export const CastProvider = ({ children }) => {
         data,
         playingCast,
         playtingCastHandler,
+        resetPlayingcastHandler
       }}
     >
       {children}
