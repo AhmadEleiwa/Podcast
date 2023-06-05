@@ -13,9 +13,9 @@ npm start
 * Authentication System
 * Listen to several podcasts
 * Dashboard
+* Search System
 * Friendly Player UI to keep with you in all pages
 ## Future Features
-* Search System
 * Save podcasts
 ## API 
 I used Apple podcast API checkout this [link](https://performance-partners.apple.com/search-api) to get more details about to use the api.
