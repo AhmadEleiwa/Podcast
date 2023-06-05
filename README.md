@@ -5,6 +5,7 @@ Podcast website buit using react and firebase. By using the apple podcast API i 
 The MUI KIT is used in the project as an UI kit
 
 <img src='Podcasts Web (Community).png' />
+
 ## How To Run 
 You can download the project and try it with command below. Or even open [Demo](https://ahmadeleiwa.github.io/Podcast/) 
 ```bash
