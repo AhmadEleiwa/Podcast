@@ -20,5 +20,8 @@ npm start
 * Friendly Player UI to keep with you in all pages
 ## Future Features
 * Save podcasts
+* Upload podcast
 ## API 
 I used Apple podcast API checkout this [link](https://performance-partners.apple.com/search-api) to get more details about to use the api.
+## Design 
+I found a Figma concept about Podcasts web [Design](https://www.figma.com/community/file/897889325168850350/Podcasts-Web) By CarlUX
