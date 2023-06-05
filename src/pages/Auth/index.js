@@ -25,10 +25,11 @@ import { useCookies } from "react-cookie";
  * @param {{login:boolean}} props
  * @returns
  */
+const expiredDate = 60 * 1000 ;
 const AuthPage = (props) => {
   const [data, setData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
-  const [cookies, setCookies] = useCookies();
+  const [, setCookies] = useCookies();
   const navigate = useNavigate();
   const signUp = async (e) => {
     e.preventDefault();
@@ -36,10 +37,11 @@ const AuthPage = (props) => {
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((p) => {
         setLoading(false);
+        console.log(p)
         setCookies("auth", {
           uid: p.user.uid,
           token: p.user.accessToken,
-        });
+        },{expires:new Date(Date.now() + expiredDate)});
         navigate("/");
       })
       .catch((p) => {
@@ -56,7 +58,7 @@ const AuthPage = (props) => {
         setCookies("auth", {
           uid: p.user.uid,
           token: p.user.accessToken,
-        });
+        },{expires:new Date(Date.now() + expiredDate)});
         navigate("/");
       })
       .catch((err) => {
@@ -77,7 +79,7 @@ const AuthPage = (props) => {
       setCookies("auth", {
         uid: p.user.uid,
         token: p.user.accessToken,
-      });
+      },{expires:new Date(Date.now() + expiredDate)});
       navigate("/");
     });
   };
